@@ -27,12 +27,6 @@ sonarqube {
     }
 }
 
-sonarqube {
-    properties {
-        property "sonar.java.libraries", "src/main/resources/libs/*.jar"
-    }
-}
-
 
 dependencies {
 	// tag::actuator[]
