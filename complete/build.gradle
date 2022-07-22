@@ -1,4 +1,5 @@
 plugins {
+	id "org.sonarqube" version "3.0"
 	id 'org.springframework.boot' version '2.7.1'
 	id 'io.spring.dependency-management' version '1.0.11.RELEASE'
 	id 'java'
@@ -11,6 +12,27 @@ sourceCompatibility = '1.8'
 repositories {
 	mavenCentral()
 }
+
+subprojects {
+    sonarqube {
+        properties {
+            property "sonar.sources", "src"
+        }
+    }
+}
+
+sonarqube {
+    properties {
+        property "sonar.java.binaries", "build/classes/"
+    }
+}
+
+sonarqube {
+    properties {
+        property "sonar.java.libraries", "src/main/resources/libs/*.jar"
+    }
+}
+
 
 dependencies {
 	// tag::actuator[]
